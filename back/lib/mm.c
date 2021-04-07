@@ -71,9 +71,9 @@ static int __heap_init(unsigned long start, unsigned long end)
 
 static char *heap;
 
-int heap_init(void)
+int heap_init(size_t size)
 {
-    heap = (char *)malloc(CONFIG_HEAP_SIZE);
+    heap = (char *)malloc(size);
 
     unsigned long heap_start = (unsigned long)heap;
     unsigned long heap_end = (unsigned long)heap + CONFIG_HEAP_SIZE;
@@ -149,7 +149,7 @@ struct list_head *get_heap_head_list(void)
 #if 1
 void mm_test(void)
 {
-	heap_init();
+	heap_init(1024);
 	int *p = (int *)my_malloc(sizeof(*p) * 3); // 248 * 4
 
 	for (int i = 0; i < 3; i++) {

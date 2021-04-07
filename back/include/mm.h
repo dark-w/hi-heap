@@ -4,7 +4,7 @@
 
 void mm_test(void);
 
-int heap_init(void);
+int heap_init(size_t size);
 
 void *my_malloc(size_t size);
 

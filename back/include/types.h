@@ -25,7 +25,7 @@ typedef enum { false, true } bool;
         }                                                                      \
     } while (0)
 
-// #define NULL ((void *)0)
+#define NULL ((void *)0)
 
 #define container_of(ptr, type, member)                                        \
     (type *)((char *)ptr - (long)(&((type *)0)->member))
