@@ -16,8 +16,8 @@ void hi_heap_mm_test(size_t size)
     printf("%ld", hypervisor->size);
 
     for (int i = 0; i < sizeof(pool) / sizeof(pool[0]); i++) {
-        pool[i].mem = (char *)hi_heap_malloc(i);
-        pool[i].size = i;
+        pool[i].mem = (char *)hi_heap_malloc(i + 1);
+        pool[i].size = i + 1;
     }
 
     for (int i = 0; i < sizeof(pool) / sizeof(pool[0]); i++) {
@@ -27,7 +27,7 @@ void hi_heap_mm_test(size_t size)
         pool[i].size = 0;
     }
 
-    // hi_heap_shutdown();
+    hi_heap_shutdown();
 }
 
 int main(int argc, char **argv)

@@ -76,7 +76,7 @@ int heap_init(size_t size)
     heap = (char *)malloc(size);
 
     unsigned long heap_start = (unsigned long)heap;
-    unsigned long heap_end = (unsigned long)heap + CONFIG_HEAP_SIZE;
+    unsigned long heap_end = (unsigned long)heap + size;
 
     return __heap_init(heap_start, heap_end);
 }
