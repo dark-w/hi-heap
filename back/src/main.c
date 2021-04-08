@@ -8,7 +8,7 @@ struct mem_region {
     size_t size;
 };
 
-void hi_heap_mm_test(size_t size)
+static void hi_heap_mm_test(size_t size)
 {
     struct mem_region pool[5];
     struct hi_heap_hypervisor *hypervisor = hi_heap_init(size);
