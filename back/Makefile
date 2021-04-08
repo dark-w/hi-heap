@@ -1,7 +1,7 @@
 CC = gcc
 LD = ld
 
-CFLAGS = -Wall -Werror -O2 -Iinclude
+CFLAGS = -Wall -Werror -O2 -Iinclude -g
 # LDFLAGD
 
 MAKEFLAGS = --no-print-directory
