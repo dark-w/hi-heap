@@ -16,3 +16,5 @@ void *hi_heap_malloc(size_t size);
 void hi_heap_free(void *p, size_t size);
 
 int hi_heap_refresh(void);
+
+void hi_heap_region_show(void);

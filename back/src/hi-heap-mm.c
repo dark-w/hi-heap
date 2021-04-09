@@ -1,7 +1,9 @@
 #include "hi-heap-mm.h"
 #include "mm.h"
+#include "list.h"
 
 #include <stdlib.h>
+#include <stdio.h>
 
 static struct hi_heap_hypervisor hypervisor;
 
@@ -60,7 +62,7 @@ void hi_heap_free(void *p, size_t size)
 
 int hi_heap_refresh(void)
 {
-    const char *start = (const char *)get_heap_head_list();
+    const char *start = (char *)(get_heap_head_list()->prev);
 
     if (!start)
         return -1;
@@ -69,4 +71,16 @@ int hi_heap_refresh(void)
         hypervisor.view[i] = start[i];
 
     return 0;
+}
+
+void hi_heap_region_show(void)
+{
+    printf("\n");
+    for (int i = 0; i < hypervisor.size; i++) {
+        printf("%x", hypervisor.view[i]);
+
+        if (i && 0 == i % 50)
+            printf("\n");
+    }
+    printf("\n");
 }
